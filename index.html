@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasan Basri Kesim — iOS Uygulamaları</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #16181d;
+    --muted: #5c6270;
+    --line: #e4e6eb;
+    --card: #f7f8fa;
+    --accent: #f26b21;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101216;
+      --fg: #f2f4f7;
+      --muted: #a2a9b8;
+      --line: #262a33;
+      --card: #191c22;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 20px;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding-block: 56px 72px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 32px; }
+  h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin: 0; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 40px 0 14px; }
+  .app {
+    display: block;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .app strong { display: block; font-size: 17px; margin-bottom: 4px; }
+  .app span { color: var(--muted); font-size: 14px; }
+  ul.links { list-style: none; padding: 0; margin: 0; }
+  ul.links li { margin-bottom: 8px; }
+  a { color: var(--accent); }
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Hasan Basri Kesim</h1>
+    <p class="sub">App Store için geliştirilen iOS uygulamaları.</p>
+  </header>
+
+  <h2>Uygulamalar</h2>
+
+  <a class="app" href="https://apps.apple.com/tr/app/formatflow/id6806651831">
+    <strong>FormatFlow</strong>
+    <span>Belge, sunum, görsel, ses ve video dosyalarını bozulmadan dönüştürür.</span>
+  </a>
+
+  <h2>Destek ve Yasal</h2>
+  <ul class="links">
+    <li><a href="https://formatflow-proxy.hasanbasrikesim.workers.dev/privacy">FormatFlow Gizlilik Politikası</a></li>
+    <li><a href="https://formatflow-proxy.hasanbasrikesim.workers.dev/terms">FormatFlow Kullanım Koşulları</a></li>
+    <li>Destek: <a href="mailto:hasanbasrikesim@gmail.com">hasanbasrikesim@gmail.com</a></li>
+  </ul>
+
+  <footer>
+    © 2026 Hasan Basri Kesim
+  </footer>
+</div>
+</body>
+</html>

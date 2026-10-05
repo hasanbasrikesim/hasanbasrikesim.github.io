@@ -3,82 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hasan Basri Kesim — iOS Uygulamaları</title>
+<title>Hasan Basri Kesim — Uygulamalar</title>
+<meta name="description" content="Sahne, ofis ve oyun için iPhone, iPad ve Mac uygulamaları: CueBox, VideoCueBox, FormatFlow, YüzdeX, Gemstone Grid.">
+<meta name="theme-color" content="#0b0b0d">
+<meta property="og:title" content="Hasan Basri Kesim — Uygulamalar">
+<meta property="og:description" content="Küçük stüdyo, işini bilen uygulamalar. iPhone, iPad ve Mac.">
+<meta property="og:image" content="https://hasanbasrikesim.github.io/assets/cuebox.png">
+<link rel="icon" type="image/png" href="assets/cuebox.png">
+<link rel="apple-touch-icon" href="assets/cuebox.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap">
 <style>
   :root {
-    color-scheme: light dark;
-    --bg: #ffffff;
-    --fg: #16181d;
-    --muted: #5c6270;
-    --line: #e4e6eb;
-    --card: #f7f8fa;
-    --accent: #f26b21;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #101216;
-      --fg: #f2f4f7;
-      --muted: #a2a9b8;
-      --line: #262a33;
-      --card: #191c22;
-    }
+    color-scheme: dark;
+    --bg: #0b0b0d;
+    --fg: #f2f0ea;
+    --muted: #b7b3a9;
+    --dim: #8a877f;
+    --card: #141417;
+    --line: #24242a;
+    --accent: #ff8a3d;
+    --display: 'Bricolage Grotesque', system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 0 20px;
-    background: var(--bg);
-    color: var(--fg);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: radial-gradient(ellipse 900px 460px at 50% 80px, rgba(255,138,61,0.18), rgba(255,138,61,0)) no-repeat, var(--bg); color: var(--fg); font: 16px/1.55 'Figtree', system-ui, -apple-system, sans-serif; }
+  a { color: var(--fg); }
+  a:hover { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  img { display: block; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; }
+  .logo { width: 40px; height: 40px; border-radius: 12px; background: var(--accent); color: var(--bg);
+          display: flex; align-items: center; justify-content: center; font: 800 17px var(--display); }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { text-decoration: none; background: #17171b; border: 1px solid #2a2a30; color: var(--fg);
+          padding: 10px 18px; border-radius: 999px; font: 500 14px 'Figtree', sans-serif; cursor: pointer; }
+  .pill:hover { border-color: var(--accent); color: var(--fg); }
+
+  .hero { padding: 64px 0 56px; display: flex; flex-direction: column; gap: 22px; align-items: center; text-align: center; }
+  h1 { margin: 0; font: 800 clamp(40px, 7vw, 84px)/1.02 var(--display); letter-spacing: -0.035em; max-width: 920px; }
+  .lead { margin: 0; font-size: 19px; color: var(--muted); max-width: 600px; }
+  .icons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .icons img { width: 56px; height: 56px; border-radius: 14px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; padding-bottom: 40px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 32px;
+          display: flex; flex-direction: column; gap: 12px; }
+  .card img { width: 80px; height: 80px; border-radius: 20px; }
+  .card h2 { margin: 0; font: 800 30px var(--display); }
+  .card p { margin: 0; font-size: 16px; color: var(--muted); flex: 1; }
+  .tag { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #9a978f; }
+  .tag.hot { color: var(--accent); }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; }
+  .links a { font-weight: 600; }
+  .links a.small { font-weight: 400; color: var(--dim); }
+
+  .feature { grid-column: span 2; flex-direction: row; flex-wrap: wrap; gap: 28px; align-items: center; padding: 40px; min-height: 300px;
+             background: linear-gradient(135deg, #2a1608, #141417 60%); border-color: #3a2414; }
+  .feature img { width: 132px; height: 132px; border-radius: 30px; }
+  .feature .body { flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px; }
+  .feature h2 { font-size: 44px; letter-spacing: -0.02em; }
+  .feature p { font-size: 17px; color: #c9c4b9; flex: none; }
+  .btn { align-self: flex-start; background: var(--accent); color: var(--bg); text-decoration: none;
+         padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; }
+  .btn:hover { color: var(--bg); filter: brightness(1.08); }
+
+  .band { background: var(--accent); color: var(--bg); border-radius: 28px; padding: 48px; margin-bottom: 56px;
+          display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between; }
+  .band .body { flex: 1 1 460px; display: flex; flex-direction: column; gap: 10px; }
+  .band .tag { color: var(--bg); opacity: 0.8; }
+  .band h2 { margin: 0; font: 800 44px var(--display); }
+  .band p { margin: 0; font-size: 18px; }
+  .band a { background: var(--bg); color: var(--fg); text-decoration: none; padding: 14px 26px; border-radius: 999px; font-weight: 600; }
+  .band a:hover { color: var(--accent); }
+
+  footer { padding: 28px 0 48px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 16px 22px;
+           justify-content: space-between; font-size: 14px; color: var(--dim); }
+  footer .links { font-size: 14px; }
+  footer .links a { font-weight: 400; color: var(--muted); }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 0 18px; }
+    .feature { grid-column: auto; padding: 28px; }
+    .feature img { width: 96px; height: 96px; border-radius: 22px; }
+    .feature h2, .band h2 { font-size: 34px; }
+    .band { padding: 32px; }
+    .grid { grid-template-columns: 1fr; }
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding-block: 56px 72px; }
-  header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 32px; }
-  h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.02em; }
-  .sub { color: var(--muted); margin: 0; }
-  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 40px 0 14px; }
-  .app {
-    display: block;
-    border: 1px solid var(--line);
-    background: var(--card);
-    border-radius: 12px;
-    padding: 18px 20px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    color: inherit;
-  }
-  .app strong { display: block; font-size: 17px; margin-bottom: 4px; }
-  .app span { color: var(--muted); font-size: 14px; }
-  ul.links { list-style: none; padding: 0; margin: 0; }
-  ul.links li { margin-bottom: 8px; }
-  a { color: var(--accent); }
-  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+  [data-en] { display: none; }
+  html[lang="en"] [data-tr] { display: none; }
+  html[lang="en"] [data-en] { display: revert; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>Hasan Basri Kesim</h1>
-    <p class="sub">App Store için geliştirilen iOS uygulamaları.</p>
-  </header>
 
-  <h2>Uygulamalar</h2>
+<header>
+  <a class="brand" href="./"><span class="logo">HK</span>Hasan Basri Kesim</a>
+  <nav>
+    <a class="pill" href="#apps"><span data-tr>Uygulamalar</span><span data-en>Apps</span></a>
+    <a class="pill" href="#iletisim"><span data-tr>İletişim</span><span data-en>Contact</span></a>
+    <button class="pill" type="button" id="lang" aria-label="Dili değiştir / Change language"><span data-tr>EN</span><span data-en>TR</span></button>
+  </nav>
+</header>
 
-  <a class="app" href="https://apps.apple.com/tr/app/formatflow/id6806651831">
-    <strong>FormatFlow</strong>
-    <span>Belge, sunum, görsel, ses ve video dosyalarını bozulmadan dönüştürür.</span>
-  </a>
+<section class="hero">
+  <h1 data-tr>Küçük stüdyo, işini bilen uygulamalar.</h1>
+  <h1 data-en>A small studio, apps that know their job.</h1>
+  <p class="lead" data-tr>Sahne, ofis ve oyun için iPhone, iPad ve Mac uygulamaları. Hepsi App Store'da.</p>
+  <p class="lead" data-en>iPhone, iPad and Mac apps for the stage, the office and play. All on the App Store.</p>
+  <div class="icons" aria-hidden="true">
+    <img src="assets/cuebox.png" alt="">
+    <img src="assets/videocuebox.png" alt="">
+    <img src="assets/formatflow.png" alt="">
+    <img src="assets/yuzdex.png" alt="">
+    <img src="assets/gemstonegrid.png" alt="">
+  </div>
+</section>
 
-  <h2>Destek ve Yasal</h2>
-  <ul class="links">
-    <li><a href="https://formatflow-proxy.hasanbasrikesim.workers.dev/privacy">FormatFlow Gizlilik Politikası</a></li>
-    <li><a href="https://formatflow-proxy.hasanbasrikesim.workers.dev/terms">FormatFlow Kullanım Koşulları</a></li>
-    <li><a href="/cuebox/privacy.html">CueBox Gizlilik Politikası / Privacy Policy</a></li>
-    <li>Destek: <a href="mailto:hasanbasrikesim@gmail.com">hasanbasrikesim@gmail.com</a></li>
-  </ul>
+<section id="apps" class="grid">
 
-  <footer>
-    © 2026 Hasan Basri Kesim
-  </footer>
+  <article class="card feature">
+    <img src="assets/cuebox.png" alt="CueBox">
+    <div class="body">
+      <div class="tag hot"><span data-tr>SAHNE · SES</span><span data-en>STAGE · AUDIO</span> · iPhone · iPad · Mac</div>
+      <h2>CueBox</h2>
+      <p data-tr>Pad'e dokun, ses anında çalsın. Trim, fade, loop, hız, klavye kısayolları ve Uzaktan Bağlantı: bir cihaz çalar, diğeri yönetir.</p>
+      <p data-en>Tap a pad and the sound plays instantly. Trim, fade, loop, speed, keyboard shortcuts and Remote Link: one device plays, another runs the show.</p>
+      <a class="btn" href="https://apps.apple.com/app/cuebox/id6806951076"><span data-tr>App Store'da indir</span><span data-en>Get it on the App Store</span></a>
+      <div class="links"><a class="small" href="cuebox/privacy.html"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a></div>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="assets/videocuebox.png" alt="VideoCueBox">
+    <div class="tag hot"><span data-tr>SAHNE · VİDEO</span><span data-en>STAGE · VIDEO</span></div>
+    <h2>VideoCueBox</h2>
+    <p data-tr>Sıradakini Preview'da hazırla, Program'ı HDMI ya da AirPlay ile projeksiyona gönder. Geçişler ve Uzaktan Bağlantı.</p>
+    <p data-en>Line up the next clip in Preview, send Program to a projector over HDMI or AirPlay. Transitions and Remote Link.</p>
+    <div class="links">
+      <a href="https://apps.apple.com/app/videocuebox/id6815435937">App Store →</a>
+      <a class="small" href="videocuebox/privacy.html"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="assets/formatflow.png" alt="FormatFlow">
+    <div class="tag"><span data-tr>ARAÇ</span><span data-en>UTILITY</span></div>
+    <h2>FormatFlow</h2>
+    <p data-tr>Video, ses, görsel ve belgeleri kalite kaybı olmadan saniyeler içinde dönüştürür.</p>
+    <p data-en>Converts video, audio, images and documents in seconds, without losing quality.</p>
+    <div class="links">
+      <a href="https://apps.apple.com/app/formatflow/id6806651831">App Store →</a>
+      <a class="small" href="https://formatflow-proxy.hasanbasrikesim.workers.dev/privacy"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a>
+      <a class="small" href="https://formatflow-proxy.hasanbasrikesim.workers.dev/terms"><span data-tr>Koşullar</span><span data-en>Terms</span></a>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="assets/yuzdex.png" alt="YüzdeX">
+    <div class="tag"><span data-tr>HESAP</span><span data-en>FINANCE</span></div>
+    <h2>YüzdeX</h2>
+    <p data-tr>İndirim, KDV, kâr, kredi taksiti, birim fiyat: dokuz hesaplayıcı, her hesap adım adım.</p>
+    <p data-en>Discounts, VAT, margin, loan instalments, unit prices: nine calculators, each shown step by step.</p>
+    <div class="links"><a href="https://apps.apple.com/app/yuzdex/id6806652448">App Store →</a></div>
+  </article>
+
+  <article class="card">
+    <img src="assets/gemstonegrid.png" alt="Gemstone Grid">
+    <div class="tag"><span data-tr>OYUN</span><span data-en>GAME</span></div>
+    <h2>Gemstone Grid</h2>
+    <p data-tr>Mücevher temalı blok bulmacası. Satırları temizle, aylık dünya sıralamasında yüksel.</p>
+    <p data-en>A gem-themed block puzzle. Clear the lines and climb the monthly world leaderboard.</p>
+    <div class="links"><a href="https://apps.apple.com/app/gemstone-grid/id6811254838">App Store →</a></div>
+  </article>
+</section>
+
+<section class="band" id="linkav">
+  <div class="body">
+    <div class="tag"><span data-tr>YAKINDA · MAC</span><span data-en>COMING SOON · MAC</span></div>
+    <h2>LinkAV</h2>
+    <p data-tr>Bağlantıyı yapıştır, istediğin biçimde kaydet. Kendi içeriğin ve izinli içerik için ses ve video indirme aracı.</p>
+    <p data-en>Paste a link, save it in the format you need. An audio and video downloader for your own and permitted content.</p>
+  </div>
+  <a href="mailto:hasanbasrikesim@gmail.com?subject=LinkAV"><span data-tr>Çıkınca haber ver</span><span data-en>Tell me when it's out</span></a>
+</section>
+
+<footer id="iletisim">
+  <div>© 2026 Hasan Basri Kesim</div>
+  <div class="links">
+    <a href="mailto:hasanbasrikesim@gmail.com">hasanbasrikesim@gmail.com</a>
+    <a href="cuebox/privacy.html">CueBox <span data-tr>gizlilik</span><span data-en>privacy</span></a>
+    <a href="videocuebox/privacy.html">VideoCueBox <span data-tr>gizlilik</span><span data-en>privacy</span></a>
+    <a href="lensgrid/privacy.html">LensGrid <span data-tr>gizlilik</span><span data-en>privacy</span></a>
+  </div>
+</footer>
+
 </div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    function set(lang) {
+      root.lang = lang;
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    set(saved || ((navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en'));
+    document.getElementById('lang').addEventListener('click', function () { set(root.lang === 'tr' ? 'en' : 'tr'); });
+  })();
+</script>
 </body>
 </html>

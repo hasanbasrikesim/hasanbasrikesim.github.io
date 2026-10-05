@@ -51,25 +51,18 @@
   .icons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .icons img { width: 56px; height: 56px; border-radius: 14px; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; padding-bottom: 40px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 32px;
-          display: flex; flex-direction: column; gap: 12px; }
-  .card img { width: 80px; height: 80px; border-radius: 20px; }
-  .card h2 { margin: 0; font: 800 30px var(--display); }
-  .card p { margin: 0; font-size: 16px; color: var(--muted); flex: 1; }
+  .list { display: flex; flex-direction: column; gap: 18px; padding-bottom: 40px; }
+  .card { background: linear-gradient(135deg, #22140a, #141417 55%); border: 1px solid #2e2218; border-radius: 28px;
+          padding: 36px 40px; min-height: 320px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+  .card > img { width: 132px; height: 132px; border-radius: 30px; flex: none; }
+  .card .body { flex: 1 1 360px; display: flex; flex-direction: column; gap: 12px; }
+  .card h2 { margin: 0; font: 800 40px var(--display); letter-spacing: -0.02em; }
+  .card p { margin: 0; font-size: 17px; color: #c9c4b9; max-width: 680px; }
   .tag { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: #9a978f; }
   .tag.hot { color: var(--accent); }
-  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; }
-  .links a { font-weight: 600; }
-  .links a.small { font-weight: 400; color: var(--dim); }
-
-  .feature { grid-column: span 2; flex-direction: row; flex-wrap: wrap; gap: 28px; align-items: center; padding: 40px; min-height: 300px;
-             background: linear-gradient(135deg, #2a1608, #141417 60%); border-color: #3a2414; }
-  .feature img { width: 132px; height: 132px; border-radius: 30px; }
-  .feature .body { flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px; }
-  .feature h2 { font-size: 44px; letter-spacing: -0.02em; }
-  .feature p { font-size: 17px; color: #c9c4b9; flex: none; }
-  .btn { align-self: flex-start; background: var(--accent); color: var(--bg); text-decoration: none;
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; }
+  .links a.small { color: var(--dim); }
+  .btn { background: var(--accent); color: var(--bg); text-decoration: none;
          padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; }
   .btn:hover { color: var(--bg); filter: brightness(1.08); }
   .btn.ghost { background: transparent; color: var(--fg); border: 1px solid #4a3a2c; }
@@ -96,11 +89,12 @@
 
   @media (max-width: 700px) {
     .wrap { padding: 0 18px; }
-    .feature { grid-column: auto; padding: 28px; }
-    .feature img { width: 96px; height: 96px; border-radius: 22px; }
-    .feature h2, .band h2 { font-size: 34px; }
+    .card { padding: 26px; gap: 20px; min-height: 0; }
+    .icons { gap: 8px; }
+    .icons img { width: 44px; height: 44px; border-radius: 11px; }
+    .card > img { width: 88px; height: 88px; border-radius: 20px; }
+    .card h2, .band h2 { font-size: 32px; }
     .band { padding: 32px; }
-    .grid { grid-template-columns: 1fr; }
   }
 
   [data-en] { display: none; }
@@ -128,71 +122,84 @@
   <div class="icons" aria-hidden="true">
     <img src="assets/cuebox.png" alt="">
     <img src="assets/videocuebox.png" alt="">
+    <img src="assets/lensgrid.png" alt="">
     <img src="assets/formatflow.png" alt="">
     <img src="assets/yuzdex.png" alt="">
     <img src="assets/gemstonegrid.png" alt="">
   </div>
 </section>
 
-<section id="apps" class="grid">
-
-  <article class="card feature">
+<section id="apps" class="list">
+  <article class="card">
     <img src="assets/cuebox.png" alt="CueBox">
     <div class="body">
       <div class="tag hot"><span data-tr>SAHNE · SES</span><span data-en>STAGE · AUDIO</span> · iPhone · iPad · Mac</div>
       <h2>CueBox</h2>
       <p data-tr>Pad'e dokun, ses anında çalsın. Trim, fade, loop, hız, klavye kısayolları ve Uzaktan Bağlantı: bir cihaz çalar, diğeri yönetir.</p>
       <p data-en>Tap a pad and the sound plays instantly. Trim, fade, loop, speed, keyboard shortcuts and Remote Link: one device plays, another runs the show.</p>
-      <div class="btns">
-        <a class="btn" href="https://apps.apple.com/app/cuebox/id6806951076?platform=mac"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg><span data-tr>Mac için indir</span><span data-en>Download for Mac</span></a>
-        <a class="btn ghost" href="https://apps.apple.com/app/cuebox/id6806951076?platform=iphone"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone ve iPad için indir</span><span data-en>Download for iPhone &amp; iPad</span><span class="soon"><span data-tr>Çok yakında</span><span data-en>Coming soon</span></span></a>
-      </div>
+      <div class="btns"><a class="btn" href="https://apps.apple.com/app/cuebox/id6806951076?platform=mac"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg><span data-tr>Mac için indir</span><span data-en>Download for Mac</span></a><a class="btn ghost" href="https://apps.apple.com/app/cuebox/id6806951076?platform=iphone"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone ve iPad için indir</span><span data-en>Download for iPhone &amp; iPad</span><span class="soon"><span data-tr>Çok yakında</span><span data-en>Coming soon</span></span></a></div>
       <div class="links"><a class="small" href="cuebox/privacy.html"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a></div>
     </div>
   </article>
 
   <article class="card">
     <img src="assets/videocuebox.png" alt="VideoCueBox">
-    <div class="tag hot"><span data-tr>SAHNE · VİDEO</span><span data-en>STAGE · VIDEO</span></div>
-    <h2>VideoCueBox</h2>
-    <p data-tr>Sıradakini Preview'da hazırla, Program'ı HDMI ya da AirPlay ile projeksiyona gönder. Geçişler ve Uzaktan Bağlantı.</p>
-    <p data-en>Line up the next clip in Preview, send Program to a projector over HDMI or AirPlay. Transitions and Remote Link.</p>
-    <div class="links">
-      <a class="dl" href="https://apps.apple.com/app/videocuebox/id6815435937?platform=mac"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg>Mac</a>
-      <a class="dl" href="https://apps.apple.com/app/videocuebox/id6815435937?platform=iphone"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg>iPhone · iPad<span class="soon"><span data-tr>Çok yakında</span><span data-en>Coming soon</span></span></a>
-      <a class="small" href="videocuebox/privacy.html"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a>
+    <div class="body">
+      <div class="tag hot"><span data-tr>SAHNE · VİDEO</span><span data-en>STAGE · VIDEO</span> · iPhone · iPad · Mac</div>
+      <h2>VideoCueBox</h2>
+      <p data-tr>Sıradakini Preview'da hazırla, Program'ı HDMI ya da AirPlay ile projeksiyona gönder. Geçişler, klip başına ayar ve Uzaktan Bağlantı.</p>
+      <p data-en>Line up the next clip in Preview, send Program to a projector over HDMI or AirPlay. Transitions, per-clip settings and Remote Link.</p>
+      <div class="btns"><a class="btn" href="https://apps.apple.com/app/videocuebox/id6815435937?platform=mac"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg><span data-tr>Mac için indir</span><span data-en>Download for Mac</span></a><a class="btn ghost" href="https://apps.apple.com/app/videocuebox/id6815435937?platform=iphone"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone ve iPad için indir</span><span data-en>Download for iPhone &amp; iPad</span><span class="soon"><span data-tr>Çok yakında</span><span data-en>Coming soon</span></span></a></div>
+      <div class="links"><a class="small" href="videocuebox/privacy.html"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a></div>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="assets/lensgrid.png" alt="LensGrid">
+    <div class="body">
+      <div class="tag"><span data-tr>FOTOĞRAF · VİDEO</span><span data-en>PHOTO · VIDEO</span> · iPhone</div>
+      <h2>LensGrid</h2>
+      <p data-tr>Telefonundaki birden fazla lensi aynı anda çalıştırır ve gördüklerini tek karede birleştirir: geniş açı, telefoto ve ön kamera, hepsi tek çekimde.</p>
+      <p data-en>Runs several of your iPhone's lenses at once and combines them in one frame: wide, telephoto and front camera, all in a single take.</p>
+      <div class="btns"><a class="btn" href="https://apps.apple.com/app/lensgrid/id6814831372"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone için indir</span><span data-en>Download for iPhone</span></a></div>
+      <div class="links"><a class="small" href="lensgrid/privacy.html"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a></div>
     </div>
   </article>
 
   <article class="card">
     <img src="assets/formatflow.png" alt="FormatFlow">
-    <div class="tag"><span data-tr>ARAÇ</span><span data-en>UTILITY</span></div>
-    <h2>FormatFlow</h2>
-    <p data-tr>Video, ses, görsel ve belgeleri kalite kaybı olmadan saniyeler içinde dönüştürür.</p>
-    <p data-en>Converts video, audio, images and documents in seconds, without losing quality.</p>
-    <div class="links">
-      <a class="dl" href="https://apps.apple.com/app/formatflow/id6806651831"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg>iPhone · iPad</a>
-      <a class="small" href="https://formatflow-proxy.hasanbasrikesim.workers.dev/privacy"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a>
-      <a class="small" href="https://formatflow-proxy.hasanbasrikesim.workers.dev/terms"><span data-tr>Koşullar</span><span data-en>Terms</span></a>
+    <div class="body">
+      <div class="tag"><span data-tr>ARAÇ</span><span data-en>UTILITY</span> · iPhone · iPad</div>
+      <h2>FormatFlow</h2>
+      <p data-tr>Video, ses, görsel ve belgeleri kalite kaybı olmadan saniyeler içinde dönüştürür.</p>
+      <p data-en>Converts video, audio, images and documents in seconds, without losing quality.</p>
+      <div class="btns"><a class="btn" href="https://apps.apple.com/app/formatflow/id6806651831"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone ve iPad için indir</span><span data-en>Download for iPhone &amp; iPad</span></a></div>
+      <div class="links"><a class="small" href="https://formatflow-proxy.hasanbasrikesim.workers.dev/privacy"><span data-tr>Gizlilik</span><span data-en>Privacy</span></a><a class="small" href="https://formatflow-proxy.hasanbasrikesim.workers.dev/terms"><span data-tr>Koşullar</span><span data-en>Terms</span></a></div>
     </div>
   </article>
 
   <article class="card">
     <img src="assets/yuzdex.png" alt="YüzdeX">
-    <div class="tag"><span data-tr>HESAP</span><span data-en>FINANCE</span></div>
-    <h2>YüzdeX</h2>
-    <p data-tr>İndirim, KDV, kâr, kredi taksiti, birim fiyat: dokuz hesaplayıcı, her hesap adım adım.</p>
-    <p data-en>Discounts, VAT, margin, loan instalments, unit prices: nine calculators, each shown step by step.</p>
-    <div class="links"><a class="dl" href="https://apps.apple.com/app/yuzdex/id6806652448"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg>iPhone · iPad</a></div>
+    <div class="body">
+      <div class="tag"><span data-tr>HESAP</span><span data-en>FINANCE</span> · iPhone · iPad</div>
+      <h2>YüzdeX</h2>
+      <p data-tr>İndirim, KDV, kâr, kredi taksiti, birim fiyat: dokuz hesaplayıcı, her hesap adım adım.</p>
+      <p data-en>Discounts, VAT, margin, loan instalments, unit prices: nine calculators, each shown step by step.</p>
+      <div class="btns"><a class="btn" href="https://apps.apple.com/app/yuzdex/id6806652448"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone ve iPad için indir</span><span data-en>Download for iPhone &amp; iPad</span></a></div>
+      
+    </div>
   </article>
 
   <article class="card">
     <img src="assets/gemstonegrid.png" alt="Gemstone Grid">
-    <div class="tag"><span data-tr>OYUN</span><span data-en>GAME</span></div>
-    <h2>Gemstone Grid</h2>
-    <p data-tr>Mücevher temalı blok bulmacası. Satırları temizle, aylık dünya sıralamasında yüksel.</p>
-    <p data-en>A gem-themed block puzzle. Clear the lines and climb the monthly world leaderboard.</p>
-    <div class="links"><a class="dl" href="https://apps.apple.com/app/gemstone-grid/id6811254838"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg>iPhone · iPad</a></div>
+    <div class="body">
+      <div class="tag"><span data-tr>OYUN</span><span data-en>GAME</span> · iPhone · iPad</div>
+      <h2>Gemstone Grid</h2>
+      <p data-tr>Mücevher temalı blok bulmacası. Satırları temizle, aylık dünya sıralamasında yüksel.</p>
+      <p data-en>A gem-themed block puzzle. Clear the lines and climb the monthly world leaderboard.</p>
+      <div class="btns"><a class="btn" href="https://apps.apple.com/app/gemstone-grid/id6811254838"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg><span data-tr>iPhone ve iPad için indir</span><span data-en>Download for iPhone &amp; iPad</span></a></div>
+      
+    </div>
   </article>
 </section>
 

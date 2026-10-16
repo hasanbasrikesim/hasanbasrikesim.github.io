@@ -1,6 +1,6 @@
 {
-  "version": "0.9.1",
-  "released": "2026-10-05T00:00:00Z",
+  "version": "0.9.2",
+  "released": "2026-10-16T00:00:00Z",
   "url": "https://hasanbasrikesim.github.io/linkav/",
-  "notes": "İlk sürüm."
+  "notes": "YouTube Music desteği; Spotify parçaları önce YouTube Music kataloğunda eşleşir; indirme motoru uygulama içinden güncellenir; ses kaynağın gerçek kalitesine göre kaydedilir; YouTube sınırlamasına karşı daha dayanıklı indirme; tek cihaza bağlı lisans, geçmişte arama, iPhone'dan telefona indir ve AirDrop."
 }
